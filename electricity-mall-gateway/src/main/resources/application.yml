@@ -1,0 +1,33 @@
+server:
+  port: 8888
+
+ribbon:
+  ConnectTimeout: 2147483647
+  ReadTimeout: 2147483647
+eureka:
+  client:
+    #    register-with-eureka: true
+    #    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:7003/eureka/
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${server.port}
+#      defaultZone: http://localhost:7001/eureka/,http://localhost:7002/eureka/
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      routes:
+        - id: eureka-client
+          uri: lb://EUREKA-CLIENT
+          predicates:
+            - Path=/api/eureka/client/**
+
+        - id: openfign
+          uri: lb://OPENFEIGN
+          predicates:
+            - Path=/api/feign/**
+          filters:
+            - RewritePath=/api/(?<segment>.*),/api/$\{segment}

@@ -1,0 +1,19 @@
+server:
+  port: 8002
+
+spring:
+  application:
+    name: electricity-mall-second-kill
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:7001/eureka/
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${server.port}
+#      defaultZone: http://localhost:7001/eureka/,http://localhost:7002/eureka/
+
+# edydeMacBook-Pro.local:electricity-mall-second-kill:8002
+# edydeMacBook-Pro.local:electricity-mall-second-kill:8002

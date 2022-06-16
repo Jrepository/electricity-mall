@@ -1,0 +1,45 @@
+server:
+  port: 8001
+
+spring:
+  application:
+    name: electricity-mall-dynamic-datasource
+
+
+  #   单数据源配置
+#  datasource:
+#    url: jdbc:mysql://127.0.0.1:3306/seata_order?useSSL=false&useUnicode=true&characterEncoding=UTF-8
+#    driver-class-name: com.mysql.jdbc.Driver
+#    username: root
+#    password: 123456
+  autoconfigure:
+    exclude: com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure
+  datasource:
+    #    type: com.alibaba.druid.pool.DruidDataSource
+    #    druid:
+    #      filters: stat,log4j
+    #      initial-size: 30
+    #      max-active: 150
+    #      min-idle: 5
+    #      max-wait: 10000
+    #多数据源配置
+    dynamic:
+      # 设置默认的数据源或者数据源组，默认值即为 master
+      primary: order-ds
+      datasource:
+        #数据库
+        order-ds:
+          url: jdbc:mysql://127.0.0.1:3306/seata_order?useSSL=false&useUnicode=true&characterEncoding=UTF-8
+          driver-class-name: com.mysql.jdbc.Driver
+          username: root
+          password: 123456
+        #数据库
+        product-ds:
+          url: jdbc:mysql://127.0.0.1:3306/seata_storage?useSSL=false&useUnicode=true&characterEncoding=UTF-8
+          driver-class-name: com.mysql.jdbc.Driver
+          username: root
+          password: 123456
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

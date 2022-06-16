@@ -1,0 +1,22 @@
+server:
+  port: 7003
+
+spring:
+  application:
+    name: eureka-server
+#  freemarker:
+#    prefer-file-system-access: false
+
+eureka:
+  client:
+    instance:
+      hostname: localhost #指定主机地址
+      appname: 注册中心
+    fetch-registry: false #指定是否要从注册中心获取服务（注册中心不需要开启）
+    register-with-eureka: false #指定是否要注册到注册中心（注册中心不需要开启）
+    service-url:
+      #单机配置自己，集群陪着其他注册中心的地址
+      defaultZone: http://${eureka.client.instance.hostname}:${server.port}/eureka/
+#      defaultZone: http://${eureka.client.instance.hostname}:7002/eureka/
+  server:
+    enable-self-preservation: false #关闭保护模式
