@@ -44,7 +44,7 @@ public class TranslateAnnotationAspect {
 
         log.info("data after ReturnTranslate:{}", result);
         long endTime = System.currentTimeMillis();
-        log.info("ReturnTranslate time :({})", endTime - startTime);
+        log.info("ReturnTranslate time :({})ms", endTime - startTime);
     }
 
 }

@@ -1,6 +1,5 @@
 package com.indi.electricity.mall.provider;
 
-import jdk.nashorn.internal.objects.annotations.Where;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.ibatis.jdbc.SQL;
 

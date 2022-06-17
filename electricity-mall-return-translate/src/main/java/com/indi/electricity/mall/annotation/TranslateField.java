@@ -28,7 +28,7 @@ public @interface TranslateField {
      *
      * @return
      */
-    Class<?> searchClass() default void.class;
+    Class<?> searchClass() default Void.class;
 
     /**
      * 根据制定方法返回的数据翻译

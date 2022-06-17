@@ -25,8 +25,12 @@ public class TranslateVo {
     private String stateNameByEnum;
     private String stateNameByMethod;
 
-    @TranslateField(searchClass = SystemConfig.class, searchKey = "parentId", targetField = "children")
-    @TranslateField(searchClass = SystemConfig.class, searchKey = "parentId", sourceField = "nameEn", targetField = "childrenName")
+    @TranslateFields(value = {
+            @TranslateField(targetField = "children"),
+            @TranslateField(sourceField = "nameEn", targetField = "childrenName")
+    },searchClass = SystemConfig.class, searchKey = "parentId")
+    //@TranslateField(searchClass = SystemConfig.class, searchKey = "parentId", targetField = "children")
+    //@TranslateField(searchClass = SystemConfig.class, searchKey = "parentId", sourceField = "nameEn", targetField = "childrenName")
     private Integer id;
     private List<SystemConfig> children;
     private List<String> childrenName;
