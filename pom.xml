@@ -31,6 +31,7 @@
         <module>electricity-mall-second-kill</module>
         <module>electricity-mall-return-translate</module>
         <module>electricity-mall-log</module>
+        <module>electricity-mall-test</module>
 
     </modules>
 
