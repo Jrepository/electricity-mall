@@ -10,6 +10,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+/**
+ * @author: admin
+ */
 @Service
 public class QueryServiceImpl implements IQueryService {
 
@@ -26,7 +29,7 @@ public class QueryServiceImpl implements IQueryService {
 
 
     private Map<Integer, String> getKeyValueVoMap() {
-        Map<Integer, String> map = new HashMap<Integer, String>() {{
+        Map<Integer, String> map = new HashMap<Integer, String>(16) {{
             put(0, "禁用");
             put(1, "启用");
             put(3, "其他");

@@ -6,6 +6,9 @@ import org.springframework.context.ApplicationContextAware;
 
 import java.util.Optional;
 
+/**
+ * @author: admin
+ */
 public class SpringUtil implements ApplicationContextAware {
 
     private static ApplicationContext applicationContext;

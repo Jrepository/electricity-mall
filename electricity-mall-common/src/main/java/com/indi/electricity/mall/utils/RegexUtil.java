@@ -1,10 +1,12 @@
 package com.indi.electricity.mall.utils;
 
-import lombok.val;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.regex.Pattern;
 
+/**
+ * @author: admin
+ */
 public class RegexUtil {
 
     /**

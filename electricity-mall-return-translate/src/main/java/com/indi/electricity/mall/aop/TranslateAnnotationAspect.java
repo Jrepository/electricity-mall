@@ -6,7 +6,6 @@ import com.indi.electricity.mall.builder.TranslateAnnotationBuilder;
 import com.indi.electricity.mall.utils.JsonUtil;
 import lombok.extern.log4j.Log4j2;
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.reflect.MethodSignature;
@@ -18,6 +17,9 @@ import java.lang.reflect.Method;
 import java.util.Collection;
 import java.util.List;
 
+/**
+ * @author: admin
+ */
 @Aspect
 @Component
 @Log4j2

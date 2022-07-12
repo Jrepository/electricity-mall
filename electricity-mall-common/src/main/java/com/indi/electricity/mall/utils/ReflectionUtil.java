@@ -5,10 +5,12 @@ import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.util.ReflectionUtils;
 
 import java.lang.reflect.Field;
-import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * @author: admin
+ */
 @Log4j2
 public class ReflectionUtil {
 

@@ -26,7 +26,9 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static com.indi.electricity.mall.annotation.TranslateFieldConst.*;
-
+/**
+ * @author: admin
+ */
 @Component
 @Log4j2
 public class TranslateAnnotationBuilder {

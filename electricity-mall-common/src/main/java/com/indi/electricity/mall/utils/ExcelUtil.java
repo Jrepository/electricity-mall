@@ -24,15 +24,20 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
+/**
+ * @author: admin
+ */
 public class ExcelUtil {
 
     private static final String DATE_PATTERN = "yyyy-MM-dd";
     private static final String DATE_TIME_PATTERN = "yyyy-MM-dd hh:mm:ss";
-    public static final SimpleDateFormat sdf = new SimpleDateFormat(DATE_TIME_PATTERN);
+    public static final SimpleDateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat(DATE_TIME_PATTERN);
 
 
-    //数字格式，防止长数字成为科学计数法形式，或者int变为double形式
-    private static final DecimalFormat df = new DecimalFormat("0");
+    /**
+     * 数字格式，防止长数字成为科学计数法形式，或者int变为double形式
+     */
+    private static final DecimalFormat DECIMAL_FORMAT = new DecimalFormat("0");
 
     public static String getCellValue(Cell cell) {
         String cellValue = "";
@@ -44,9 +49,10 @@ public class ExcelUtil {
                     //if (HSSFDateUtil.isCellDateFormatted(cell)) {
                     if (DateUtil.isCellDateFormatted(cell)) {
                         Date date = cell.getDateCellValue();
-                        cellValue = sdf.format(date);
+                        cellValue = SIMPLE_DATE_FORMAT.format(date);
                     } else {
-                        cellValue = df.format(cell.getNumericCellValue()); //数字型
+                        //数字型
+                        cellValue = DECIMAL_FORMAT.format(cell.getNumericCellValue());
                         cellValue = cellValue.replaceAll("\\.(0)*$", "");
                     }
                     break;
@@ -87,7 +93,7 @@ public class ExcelUtil {
                 }
                 if (ObjectUtils.isEmpty(cellData)) {
                 } else if (cellData instanceof Date) {
-                    cellData = sdf.format(cellData);
+                    cellData = SIMPLE_DATE_FORMAT.format(cellData);
                 } else if (cellData instanceof LocalDate) {
                     cellData = ((LocalDate) cellData).format(DateTimeFormatter.ofPattern(DATE_PATTERN));
                 } else if (cellData instanceof LocalDateTime) {

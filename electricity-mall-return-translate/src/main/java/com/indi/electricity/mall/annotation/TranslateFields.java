@@ -9,6 +9,7 @@ import java.lang.annotation.Target;
 import static com.indi.electricity.mall.annotation.TranslateFieldConst.TRANSLATE_FIELD_DS_DEFAULT;
 import static com.indi.electricity.mall.annotation.TranslateFieldConst.TRANSLATE_FIELD_SEARCH_KEY;
 
+
 /**
  * The annotation that be grouping mapping definitions for property.
  *
@@ -28,8 +29,7 @@ import static com.indi.electricity.mall.annotation.TranslateFieldConst.TRANSLATE
  * User selectById(int id);
  * }
  * <p>
- * Author:
- * Clinton Begin
+ * @author: admin
  */
 @Documented
 @Retention(RetentionPolicy.RUNTIME)

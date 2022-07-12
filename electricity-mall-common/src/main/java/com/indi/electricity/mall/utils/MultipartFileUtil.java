@@ -24,14 +24,16 @@ import java.util.Map;
 
 /**
  * @Description: url转成MultipartFile
+ * @author: admin
  */
 public class MultipartFileUtil {
 
     private static final Logger logger = LoggerFactory.getLogger(MultipartFileUtil.class);
+
     /**
      * inputStream 转 File
      */
-    public static File inputStreamToFile(InputStream ins, String name) throws Exception{
+    public static File inputStreamToFile(InputStream ins, String name) throws Exception {
         //System.getProperty("java.io.tmpdir")临时目录+File.separator目录中间的间隔符+文件名
         File file = new File(System.getProperty("java.io.tmpdir") + File.separator + name);
 //        if (file.exists()) {
@@ -54,7 +56,7 @@ public class MultipartFileUtil {
      */
     public static MultipartFile fileToMultipartFile(File file) {
         FileItemFactory factory = new DiskFileItemFactory(16, null);
-        FileItem item=factory.createItem(file.getName(),MediaType.MULTIPART_FORM_DATA_VALUE,true,file.getName());
+        FileItem item = factory.createItem(file.getName(), MediaType.MULTIPART_FORM_DATA_VALUE, true, file.getName());
         int bytesRead = 0;
         byte[] buffer = new byte[8192];
         try {
@@ -74,13 +76,13 @@ public class MultipartFileUtil {
     /**
      * url转MultipartFile
      */
-    public static MultipartFile urlToMultipartFile(String url){
+    public static MultipartFile urlToMultipartFile(String url) {
         File file = null;
         MultipartFile multipartFile = null;
         try {
             HttpURLConnection httpUrl = (HttpURLConnection) new URL(url).openConnection();
             httpUrl.connect();
-            file = MultipartFileUtil.inputStreamToFile(httpUrl.getInputStream(),httpUrl.getURL().getFile());
+            file = MultipartFileUtil.inputStreamToFile(httpUrl.getInputStream(), httpUrl.getURL().getFile());
             multipartFile = MultipartFileUtil.fileToMultipartFile(file);
             httpUrl.disconnect();
         } catch (Exception e) {
@@ -90,31 +92,30 @@ public class MultipartFileUtil {
     }
 
 
-
-
-    public static Map<String, List<String[]>> readExcelBySheetName(String httpUrl,int startRow, int startCell) throws Exception {
-        URL url = new URL(httpUrl);//把远程文件地址转换成URL格式
-
+    public static Map<String, List<String[]>> readExcelBySheetName(String httpUrl, int startRow, int startCell) throws Exception {
+       //把远程文件地址转换成URL格式
+        URL url = new URL(httpUrl);
         URLConnection connection = url.openConnection();
         InputStream fin = connection.getInputStream();
-        XSSFWorkbook workbook = new XSSFWorkbook(fin);//我的测试文件后缀为xlsx，所以用XSSF
+        //文件后缀为xlsx，所以用XSSF
+        XSSFWorkbook workbook = new XSSFWorkbook(fin);
         Map<String, List<String[]>> list = new HashMap();
-        for(int sheetNum = 0; sheetNum < workbook.getNumberOfSheets(); ++sheetNum) {
+        for (int sheetNum = 0; sheetNum < workbook.getNumberOfSheets(); ++sheetNum) {
             XSSFSheet sheet = workbook.getSheetAt(sheetNum);
             int firstRowNum = sheet.getFirstRowNum();
             int lastRowNum = sheet.getLastRowNum();
-            for(int rowNum = firstRowNum + startRow; rowNum <= lastRowNum; ++rowNum) {
+            for (int rowNum = firstRowNum + startRow; rowNum <= lastRowNum; ++rowNum) {
                 Row row = sheet.getRow(rowNum);
                 int firstCellNum = row.getFirstCellNum();
                 int lastCellNum = row.getLastCellNum();
                 String[] cells = new String[lastCellNum];
-                for(int cellNum = firstCellNum + startCell; cellNum < lastCellNum; ++cellNum) {
+                for (int cellNum = firstCellNum + startCell; cellNum < lastCellNum; ++cellNum) {
                     Cell cell = row.getCell(cellNum);
                     cells[cellNum] = ExcelUtil.getCellValue(cell);
                 }
 
                 if (list.containsKey(sheet.getSheetName())) {
-                    ((List)list.get(sheet.getSheetName())).add(cells);
+                    ((List) list.get(sheet.getSheetName())).add(cells);
                 } else {
                     List<String[]> tmpSheet = new ArrayList();
                     tmpSheet.add(cells);
@@ -157,6 +158,7 @@ public class MultipartFileUtil {
 
     /**
      * 获取封装得MultipartFile
+     *
      * @param fileUrl
      * @return
      * @throws Exception
@@ -196,7 +198,7 @@ public class MultipartFileUtil {
         return item;
     }
 
-    public static MultipartFile createFileItem(String url) throws Exception{
+    public static MultipartFile createFileItem(String url) throws Exception {
         FileItem item = null;
         HttpURLConnection conn = (HttpURLConnection) new URL(url).openConnection();
         conn.setReadTimeout(30000);
@@ -219,7 +221,7 @@ public class MultipartFileUtil {
                 fileName = newUrl.substring(pos + 1);
             }
             FileItemFactory factory = new DiskFileItemFactory(16, null);
-            logger.info("文件名为：" + fileName + "  大小" + (conn.getContentLength()/1024)+"KB");
+            logger.info("文件名为：" + fileName + "  大小" + (conn.getContentLength() / 1024) + "KB");
             item = factory.createItem(fileName, MediaType.MULTIPART_FORM_DATA_VALUE, false, fileName);
             OutputStream os = item.getOutputStream();
             int bytesRead;
@@ -239,12 +241,13 @@ public class MultipartFileUtil {
 
     /**
      * url转变为 MultipartFile对象
+     *
      * @param url
      * @param fileName
      * @return
      * @throws Exception
      */
-    private static MultipartFile createFileItem(String url, String fileName) throws Exception{
+    private static MultipartFile createFileItem(String url, String fileName) throws Exception {
         FileItem item = null;
         try {
             HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
@@ -271,15 +274,15 @@ public class MultipartFileUtil {
     }
 
 
-    public String getFileName(String urlStr){
+    public String getFileName(String urlStr) {
         String fileName = null;
         try {
             URL url = new URL(urlStr);
             URLConnection uc = url.openConnection();
             fileName = uc.getHeaderField("Content-Disposition");
             fileName = new String(fileName.getBytes("ISO-8859-1"), "GBK");
-            fileName = URLDecoder.decode(fileName.substring(fileName.indexOf("filename=")+9),"UTF-8");
-            logger.info("文件名为：" + fileName + "  大小" + (uc.getContentLength()/1024)+"KB");
+            fileName = URLDecoder.decode(fileName.substring(fileName.indexOf("filename=") + 9), "UTF-8");
+            logger.info("文件名为：" + fileName + "  大小" + (uc.getContentLength() / 1024) + "KB");
         } catch (Exception e) {
             e.printStackTrace();
         }

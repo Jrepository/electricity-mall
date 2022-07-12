@@ -17,13 +17,9 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Date;
 
+
 /**
- * <p>
- *
- * </p>
- *
- * @author ph
- * @since 2022-05-16
+ * @author: admin
  */
 @Data
 @TableName("system_config")

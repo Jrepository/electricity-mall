@@ -2,8 +2,6 @@ package com.indi.electricity.mall.handler;
 
 import org.apache.ibatis.type.BaseTypeHandler;
 import org.apache.ibatis.type.JdbcType;
-import org.apache.ibatis.type.MappedJdbcTypes;
-import org.apache.ibatis.type.MappedTypes;
 import org.springframework.stereotype.Component;
 
 import java.sql.CallableStatement;
@@ -19,7 +17,10 @@ import java.util.Date;
  * 定义类型：注释后仍然可以正常显示
  * @MappedJdbcTypes({JdbcType.BIGINT})
  * @MappedTypes({Date.class})
+ *
+ * @author: admin
  */
+
 @Component
 //@MappedJdbcTypes({JdbcType.BIGINT})
 //@MappedTypes({Date.class})

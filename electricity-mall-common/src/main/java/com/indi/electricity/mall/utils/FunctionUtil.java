@@ -5,6 +5,9 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
+/**
+ * @author: admin
+ */
 public class FunctionUtil {
 
     public static <T> Predicate<T> distinctByKey(Function<? super T, ?> keyExtractor) {

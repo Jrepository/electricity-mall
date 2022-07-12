@@ -7,8 +7,9 @@ public class EnumUtil {
     public static <E extends Enum<?> & IPairs> E codeOf(Class<E> enumClass, Object key) {
         E[] enumConstants = enumClass.getEnumConstants();
         for (E e : enumConstants) {
-            if (e.key().equals(key))
+            if (e.key().equals(key)) {
                 return e;
+            }
         }
         return null;
     }

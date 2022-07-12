@@ -7,6 +7,9 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * @author: admin
+ */
 public class SqlProvider {
 
     public String selectSqlProvider(String tableName, Collection<?> fields, String conditionField, List<Object> conditions) {

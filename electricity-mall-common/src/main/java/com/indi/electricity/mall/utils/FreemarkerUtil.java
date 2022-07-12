@@ -5,6 +5,9 @@ import freemarker.template.Template;
 
 import java.io.IOException;
 
+/**
+ * @author: admin
+ */
 public class FreemarkerUtil {
 
     public static Configuration configuration;

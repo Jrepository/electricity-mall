@@ -11,12 +11,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
- * <p>
- *
- * </p>
- *
- * @author ph
- * @since 2022-05-19
+ * @author: admin
  */
 @Data
 @TableName("order_1")

@@ -1,9 +1,10 @@
 package com.indi.electricity.mall.handler;
 
-import org.springframework.stereotype.Component;
-
 import java.util.List;
 
+/**
+ * @author: admin
+ */
 public interface IQueryHandler {
 
     /**

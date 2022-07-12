@@ -29,7 +29,9 @@ import java.lang.annotation.Target;
  * @Result(property = "created", column = "created_date", typeHandler = LocalDateTimeTypeHandler.class, jdbcType = JdbcType.TIMESTAMP),
  * @Result(property = "updated", column = "updated_date", typeHandler = LocalDateTimeTypeHandler.class, jdbcType = JdbcType.TIMESTAMP)
  * })
+ * @author: admin
  */
+
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)

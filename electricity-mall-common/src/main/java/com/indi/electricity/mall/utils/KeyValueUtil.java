@@ -1,20 +1,22 @@
 package com.indi.electricity.mall.utils;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 import com.indi.electricity.mall.vo.KeyValueVo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 
 /**
  * 根据枚举生成生成KeyValue对象列表
+ *
+ * @author: admin
  */
 @Component
 public class KeyValueUtil {

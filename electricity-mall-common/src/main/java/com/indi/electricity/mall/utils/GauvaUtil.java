@@ -3,11 +3,13 @@ package com.indi.electricity.mall.utils;
 import com.google.common.base.CaseFormat;
 
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+/**
+ * @author: admin
+ */
 public class GauvaUtil {
 
     /**

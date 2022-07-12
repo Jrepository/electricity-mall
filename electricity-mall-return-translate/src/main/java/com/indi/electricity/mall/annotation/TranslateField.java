@@ -9,10 +9,13 @@ import java.lang.annotation.Target;
 
 import static com.indi.electricity.mall.annotation.TranslateFieldConst.*;
 
+
 /**
  * jdk8中新增的注解，使用该元注解的注解是可重复的
  * 使用该元注解的注解，可以在同一个地方使用
  * 没有使用该元注解的注解，同一个地方使用会报错
+ *
+ * @author: admin
  */
 @Documented
 @Retention(RetentionPolicy.RUNTIME)

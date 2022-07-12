@@ -10,6 +10,8 @@ import java.util.Set;
 
 /**
  * 对象的null值处理工具
+ *
+ * @author: admin
  */
 public class NullPropertyUtil {
 

@@ -22,6 +22,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+/**
+ * @author: admin
+ */
 @Component
 public class QueryByMethodHandler implements IQueryHandler {
 
@@ -72,11 +75,11 @@ public class QueryByMethodHandler implements IQueryHandler {
                 Object value = valueMethod.invoke(object);
                 list.add(new KeyValueVo(key, value));
             }
+            return list;
         } catch (Exception e) {
 //            logger
-        } finally {
-            return list;
         }
+        return list;
     }
 
 
@@ -105,8 +108,12 @@ public class QueryByMethodHandler implements IQueryHandler {
                 String fieldName = tableFieldAnnotation.value();
                 tableFieldName = StringUtils.isEmpty(fieldName) ? GauvaUtil.toLowerUnderscore(field.getName()) : fieldName;
             }
-            if (StringUtils.isNotBlank(tableFieldName)
-                    && (searchKey.contains(tableFieldName) || CollectionUtils.isEmpty(sourceFieldList) || sourceFieldList.contains(tableFieldName))) {
+
+            boolean flag = StringUtils.isNotBlank(tableFieldName)
+                    && (searchKey.contains(tableFieldName)
+                    || CollectionUtils.isEmpty(sourceFieldList)
+                    || sourceFieldList.contains(tableFieldName));
+            if (flag) {
                 fields.add(tableFieldName);
             }
         }
