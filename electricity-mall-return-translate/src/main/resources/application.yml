@@ -5,12 +5,12 @@ spring:
   application:
     name: return-translate
 
-    # 单数据源配置
-  #  datasource:
-  #    url: jdbc:mysql://127.0.0.1:3306/electricity_mall?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false&useTimezone=true&serverTimezone=GMT%2B8
-  #    driver-class-name: com.mysql.jdbc.Driver
-  #    username: root
-  #    password: 123456
+  # 单数据源配置
+#  datasource:
+#    url: jdbc:mysql://192.168.247.128:3306/electricity_mall?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false&useTimezone=true&serverTimezone=GMT%2B8
+#    driver-class-name: com.mysql.jdbc.Driver
+#    username: root
+#    password: 123456
   autoconfigure:
     exclude: com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure
   datasource:
@@ -22,13 +22,13 @@ spring:
       datasource:
         #数据库
         electricity_mall:
-          url: jdbc:mysql://127.0.0.1:3306/electricity_mall?useSSL=false&useUnicode=true&characterEncoding=UTF-8
+          url: jdbc:mysql://192.168.247.128:3306/electricity_mall?useSSL=false&useUnicode=true&characterEncoding=UTF-8
           driver-class-name: com.mysql.jdbc.Driver
           username: root
           password: 123456
         #数据库
         electricity_mall_1:
-          url: jdbc:mysql://127.0.0.1:3306/electricity_mall_1?useSSL=false&useUnicode=true&characterEncoding=UTF-8
+          url: jdbc:mysql://192.168.247.128:3306/electricity_mall_1?useSSL=false&useUnicode=true&characterEncoding=UTF-8
           driver-class-name: com.mysql.jdbc.Driver
           username: root
           password: 123456

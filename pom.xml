@@ -23,8 +23,6 @@
 
         <module>electricity-mall-config</module>
 
-        <module>electricity-mall-config</module>
-
         <module>electricity-mall-common</module>
         <module>electricity-mall-order</module>
         <module>electricity-mall-cart</module>

@@ -1,6 +1,5 @@
 package com.indi.electricity.mall.utils;
 
-import com.sun.org.apache.regexp.internal.RE;
 import lombok.Data;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
